@@ -10,7 +10,7 @@
     name=""
     host={{ item }}
     state=absent
-  with_items: mariadb_anonymous_users.stdout_lines
+  with_items: "{{ mariadb_anonymous_users.stdout_lines }}"
 
 - name: remove test database
   mysql_db: name=test state=absent
@@ -31,7 +31,7 @@
   command: >-
     mysql -u root -NBe
     'SET PASSWORD FOR "{{ mariadb_root_username }}"@"{{ item }}" = PASSWORD("{{mariadb_root_password}}");'
-  with_items: mariadb_root_hosts.stdout_lines
+  with_items: "{{ mariadb_root_hosts.stdout_lines }}"
   when: mariadb_install_packages.changed
 
 - name: template my.cnf for root user account

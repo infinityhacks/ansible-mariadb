@@ -5,7 +5,7 @@
     encoding={{ item.encoding | default('utf8') }}
     collation={{ item.collation | default('utf8_general_ci') }}
     state={{ item.state | default('present') }}
-  with_items: mariadb_databases
+  with_items: "{{ mariadb_databases }}"
 
 - name: ensure users are present
   mysql_user: >-
@@ -14,4 +14,4 @@
     password={{ item.password }}
     priv={{ item.priv | default('*.*:USAGE') }}
     state={{ item.state | default('present') }}
-  with_items: mariadb_users
+  with_items: "{{ mariadb_users }}"
