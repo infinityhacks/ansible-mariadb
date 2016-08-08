@@ -6,7 +6,7 @@ mariadb_do_backup: no
 mariadb_backup_age: 14
 mariadb_backup_dir: /var/backup
 mariadb_backup_compression: gzip
-mariadb_backup_opts: "--defaults-extra-file {{ mariadb_root_home }}/.my.cnf"
+mariadb_backup_opts: "--single-transaction"
 mariadb_backup_install_path: /usr/local/bin
 #
 mariadb_root_username: root
