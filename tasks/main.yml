@@ -37,24 +37,10 @@
     group={{ mariadb_owner }}
     mode=0644
 
-- name: deploy backup script
-  template: >-
-    src=mariadb-backup.sh.j2
-    dest={{ mariadb_backup_install_path }}/mariadb-backup
-    owner=root
-    group=root
-    mode=0755
+- name: deploy backup
+  include_tasks: backup.yml
   when: mariadb_do_backup
-
-- name: create cron job for backups
-  cron: >-
-    name="mariadb backups"
-    hour=6
-    minute=5
-    user="root"
-    job="{{ mariadb_backup_install_path }}/mariadb-backup"
-    cron_file="ansible-mariadb-backup"
-  when: mariadb_do_backup
+  tags: backup
 
 - name: enable and start mariadb
   service: name=mariadb enabled=yes state=started

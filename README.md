@@ -115,6 +115,22 @@ A trivial example:
       roles:
         - { role: sfromm.mariadb }
         
+Use to deploy backup script
+---------------------------
+
+By setting **mariadb_do_backup** to true, and all the mariadb_*_backup variables or let them to default,
+
+you can deploy *only* backup script by playing the role with the tag "backup"
+
+A trivial example:
+
+    - hosts: servers
+      roles:
+        - { role: sfromm.mariadb }
+      tags: backup
+
+Will only deploy backup script and crontab
+
 License
 -------
 
