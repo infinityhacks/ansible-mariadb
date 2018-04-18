@@ -16,10 +16,10 @@ mariadb_root_home: /root
 # mariadb configuration
 mariadb_port: "3306"
 mariadb_bind_address: "0.0.0.0"
-mariadb_datadir: /var/lib/mysql
-mariadb_pid_file: /var/run/mariadb/mariadb.pid
-mariadb_socket: /var/lib/mysql/mysql.sock
-mariadb_log_error: /var/log/mariadb/mariadb.log
+mariadb_datadir: "{{ mariadb_datadir_default }}"
+mariadb_pid_file: "{{ mariadb_pid_file_default }}"
+mariadb_socket: "{{ mariadb_socket_default }}"
+mariadb_log_error: "{{ mariadb_log_error_default }}"
 mariadb_max_connections: 151
 #
 # innodb
