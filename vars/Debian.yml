@@ -1,6 +1,6 @@
 ---
 mariadb_packages:
-  - mariadb
+  - mariadb-client
   - mariadb-server
   - python-mysql
 mariadb_conf_path_default: /etc/mysql/mariadb.cnf
