@@ -105,8 +105,9 @@ galaxy_info:
   #  versions:
   #  - all
   #  - any
-  #- name: Debian
-  #  versions:
+  - name: Debian
+    versions:
+    - stretch
   #  - all
   #  - etch
   #  - jessie
